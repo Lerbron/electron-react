@@ -4,10 +4,11 @@
   "main": "main/index.prod.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently \"yarn start:render\" \"wait-on http://localhost:3000 && yarn start:main\" ",
-    "start:main": "electron .",
-    "start:render": "yarn delete:dist && yarn dll:dev && yarn  dev",
-    "build": "yarn delete:dist && yarn delete:release && yarn dll:prd && yarn  prd",
+    "start": "concurrently \"yarn start:render\" \"wait-on http://localhost:3000 && yarn start:main\"",
+    "start:main": "node ./config/devScript.js",
+    "start:render": "yarn delete:dist && yarn dll:dev && yarn dev",
+    "build:main:dev": "cross-env NODE_ENV=development webpack --config config/webpack.main.js --colors",
+    "build": "yarn delete:dist && yarn delete:release && yarn dll:prd && yarn prd",
     "build:main": "cross-env NODE_ENV=production webpack --config config/webpack.main.js --colors",
     "pack:mac": "cross-env NODE_ENV=production yarn build && yarn build:main && electron-builder build --mac",
     "pack:win": "cross-env NODE_ENV=production yarn build && electron-builder build --win --ia32",
@@ -38,6 +39,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "babel-plugin-import": "^1.11.0",
+    "cfonts": "^2.8.5",
     "chalk": "^2.4.2",
     "clean-webpack-plugin": "^2.0.1",
     "concurrently": "^5.2.0",
@@ -70,6 +72,7 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {

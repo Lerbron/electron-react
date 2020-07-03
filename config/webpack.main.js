@@ -4,8 +4,10 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const chalk = require('chalk')
 
+const isDev= process.env.NODE_ENV === 'development'
+
 module.exports= {
-  mode: 'production',
+  mode: isDev ? 'development' : 'production',
   target: 'electron-main',
   entry: {
     "index.prod": path.resolve(__dirname, "./../main/index.js")
