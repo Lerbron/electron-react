@@ -1,6 +1,8 @@
 {
   "name": "electron-react",
   "version": "1.0.0",
+  "author": "lerbron",
+  "description": "Electron React",
   "main": "main/index.prod.js",
   "license": "MIT",
   "scripts": {
@@ -107,7 +109,8 @@
     "files": [
       "dist/**/*",
       "main/index.prod.js",
-      "!node_modules/"
+      "!node_modules/",
+      "resources"
     ],
     "asar": true,
     "directories": {
