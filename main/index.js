@@ -9,8 +9,10 @@ const path = require('path')
 if (isDev) {
   // require('electron-debug')();
 }
+// window更新
+if(require('electron-squirrel-startup')) app.quit();
 
-let win = null
+let win = null;
 const isMac= process.platform === 'darwin'
 
 let createWindows = () => {
@@ -55,7 +57,7 @@ let createWindows = () => {
         globalShortcut.register('Ctrol + Shift + I', () => {
           return false
         })
-        globalShortcut.register('fn + f12', () => {
+        globalShortcut.register('F12', () => {
           return false
         })
       }
@@ -71,4 +73,16 @@ let createWindows = () => {
 }
 app.on('ready', () => {
   createWindows()
+})
+
+app.on('will-finish-launching', () => {
+
+  // 版本更新
+  if(!isDev) {
+    require('./updater.js')
+  }
+
+  // 崩溃报告
+  require('./crashReport').init()
+
 })
