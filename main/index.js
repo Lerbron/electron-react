@@ -13,9 +13,9 @@ const path = require('path')
 let iconPath = './../resources/icon_mac.png';
 let iconPathLight = './../resources/icon_mac_light.png'
 
-// if (isDev) {
-  // require('electron-debug')();
-// }
+if (isDev) {
+  require('electron-debug')();
+}
 
 // window更新
 if (require('electron-squirrel-startup')) app.quit();

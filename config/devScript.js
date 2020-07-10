@@ -105,8 +105,8 @@ function startMain() {
 
 function startElectron() {
   electronProcess = spawn(electron, [
-    "--inspect=5858",
-    path.join(__dirname, "../main/index.js")
+    // "--inspect=5858",
+    path.join(__dirname, "../main/index.prod.js")
   ]);
 
   electronProcess.stdout.on("data", data => {
