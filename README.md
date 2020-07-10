@@ -1,4 +1,4 @@
-## 该项目 electron-react use  Electron, React, React-Router, Redux, Webpack for rapid application development (HMR).
+#### electron-react use  Electron, React, React-Router, Redux, Webpack for rapid application development (HMR).
 
 ## Install
 First, clone the repo via git and install dependencies:
