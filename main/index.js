@@ -4,7 +4,7 @@ const {
   globalShortcut,
   Menu,
   Tray,
-  nativeTheme
+  nativeTheme,
 } = require('electron')
 const isDev = require('electron-is-dev')
 const path = require('path')
@@ -13,9 +13,10 @@ const path = require('path')
 let iconPath = './../resources/icon_mac.png';
 let iconPathLight = './../resources/icon_mac_light.png'
 
-if (isDev) {
+// if (isDev) {
   // require('electron-debug')();
-}
+// }
+
 // window更新
 if (require('electron-squirrel-startup')) app.quit();
 
@@ -62,29 +63,16 @@ let createWindows = () => {
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+    mainWindow.focus()
   })
 
   mainWindow.on('focus', () => {
-    if (!isDev) {
-      // 生产包禁止快捷键打开调试面板
-      if (isMac) {
-        globalShortcut.register('Command + Option + I', () => {
-          return false
-        })
-        globalShortcut.register('fn + f12', () => {
-          return false
-        })
-      } else {
-        globalShortcut.register('Ctrol + Shift + I', () => {
-          return false
-        })
-        globalShortcut.register('F12', () => {
-          return false
-        })
+    // 按esc，退出全屏
+    globalShortcut.register('esc', () => {
+      if(mainWindow.isMaximized()) {
+        mainWindow.setFullScreen(false)
       }
-
-    }
-
+    })
   })
   mainWindow.on('blur', () => {
     // 注销键盘事件
@@ -122,11 +110,6 @@ const createMenu = () => {
         submenu: [{
           role: 'quit'
         }]
-      }, {
-        label: 'View',
-        submenu:[{
-          role: 'reload'
-        }]
       }
     ]
     let menu = Menu.buildFromTemplate(template)
@@ -142,7 +125,7 @@ const showMain = () => {
   mainWindow.show()
 }
 
-const hideMain = () => {
+const hideMain = (type) => {
   isShow = false;
   if (isMac) {
     mainWindow.hide();
@@ -182,12 +165,12 @@ app.on('ready', () => {
 
 app.on('will-finish-launching', () => {
   // 版本更新
-  if (!isDev) {
-    require('./updater.js')
-  }
+  // if (!isDev) {
+  //   require('./updater.js')
+  // }
 
   // 崩溃报告
-  require('./crashReport').init()
+  // require('./crashReport').init()
 
 })
 
