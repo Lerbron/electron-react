@@ -14,8 +14,6 @@ class CoreLayout extends Component {
   componentDidMount() {
 
   }
-  componentWillMount() {
-  }
 
   render() {
     return (

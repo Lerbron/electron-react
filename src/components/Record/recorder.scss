@@ -1,0 +1,55 @@
+.waveWrap {
+  width: 200px;
+  padding: 20px 0 0 20px;
+}
+.waveWrap .item {
+  display: inline-block;
+  width: 10px;
+  margin: 0 5px;
+  vertical-align: middle;
+  background-color: #1890ff;
+}
+
+.audio-wrap{
+  width: 520px;
+  height: 86px;
+  border-radius: 43px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #B4AAFF;
+  box-shadow:0px 2px 10px 0px rgba(0,0,0,0.1);
+
+  .large-btn{
+    width: 86px;
+    height: 86px;
+  }
+
+  .mini-btn{
+    width: 60px;
+    height: 60px;
+  }
+
+  .audio-btn{
+    display: block;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #9182FF;
+  }
+
+  .audio-content{
+    position: absolute;
+    z-index: -1;
+  }
+
+  .canvas-wrap{
+    flex: 1;
+    padding: 0 34px 0 24px;
+    display: flex;
+    align-items: center;
+
+    canvas{
+      flex: 1;
+    }
+  }
+}

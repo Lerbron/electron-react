@@ -53,7 +53,8 @@ const baseConfig = {
 			"reducers": path.resolve(__dirname, './../src/reducers/'),
 			"utils": path.resolve(__dirname, './../src/utils/'),
 			"high-order": path.resolve(__dirname, './../src/high-order/'),
-			"scss": path.resolve(__dirname, './../src/scss/'),
+      "scss": path.resolve(__dirname, './../src/scss/'),
+      'libs': path.resolve(__dirname, './../libs/')
 		}
 	},
 
