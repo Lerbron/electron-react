@@ -1,6 +1,6 @@
 {
   "name": "electron-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "lerbron",
   "description": "Electron React",
   "main": "main/index.prod.js",
@@ -45,6 +45,7 @@
     "chalk": "^2.4.2",
     "clean-webpack-plugin": "^2.0.1",
     "concurrently": "^5.2.0",
+    "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
@@ -121,7 +122,13 @@
         "dmg",
         "zip"
       ],
-      "icon": "resources/icon.icns"
+      "icon": "resources/icon.icns",
+      "entitlements": "entitlements.mac.plist",
+      "hardenedRuntime": true,
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "请允许本程序访问您的麦克风",
+        "NSCameraUsageDescription": "请允许本程序访问您的摄像头"
+      }
     },
     "dmg": {
       "window": {

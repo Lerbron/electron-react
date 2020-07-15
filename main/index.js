@@ -5,6 +5,7 @@ const {
   Menu,
   Tray,
   nativeTheme,
+  systemPreferences
 } = require('electron')
 const isDev = require('electron-is-dev')
 const path = require('path')
@@ -156,11 +157,27 @@ const toggleTheme= () => {
   }
 }
 
+const getMediaAuth= () => {
+  const microphone= systemPreferences.getMediaAccessStatus('microphone')
+  const camera= systemPreferences.getMediaAccessStatus('camera')
+
+
+  systemPreferences.askForMediaAccess('microphone')
+    .then(res => {
+      console.log('ask for micphone--->',res)
+    })
+  systemPreferences.askForMediaAccess('camera')
+    .then(res => {
+      console.log('ask for camera---->', res)
+    })
+}
+
 app.on('ready', () => {
   createMenu()
   createWindows()
   createTray()
   toggleTheme()
+  getMediaAuth()
 })
 
 app.on('will-finish-launching', () => {

@@ -73,7 +73,7 @@ const baseConfig = {
     
     new htmlWebpackPlugin({     // 自动创建html
       template: 'index.html',   // 创建html所引用的模板，默认为根目录下的html
-      title: "react-temp",  // 传参，模板中可通过<%= htmlWebpackPlugin.options.title%>来获取
+      title: "electron-react",  // 传参，模板中可通过<%= htmlWebpackPlugin.options.title%>来获取
       filename: "index.html",   // 创建后的html的文件名
       // inject: true,           // 注入打包好的js,默认为true。 可通过  inject: head/body  声明将js注入到模板中的head/body标签中
 			vendorJsName: process.env.NODE_ENV == 'development'? `/dist/js/${vendorAssets.vendor.js}` : `js/${vendorAssets.vendor.js}`,// 加载dll文件      

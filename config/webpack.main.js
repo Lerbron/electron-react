@@ -3,7 +3,7 @@ const path= require('path')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const chalk = require('chalk')
-
+const CopyPlugin = require('copy-webpack-plugin');
 const isDev= process.env.NODE_ENV === 'development'
 
 module.exports= {
@@ -34,6 +34,11 @@ module.exports= {
       format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)'
     }),
     new FriendlyErrorsWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, './../entitlements.mac.plist'), to: path.resolve(__dirname, './../release') },
+      ],
+    }),
 
   ],
   stats: "errors-only",
