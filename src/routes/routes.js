@@ -1,5 +1,5 @@
-import Home from 'containers/Home/Home'
-import Detail from 'containers/Detail/Detail'
+import Home from 'containers/Home/'
+import Detail from 'containers/Detail/'
 
 const routes = [
 	{
