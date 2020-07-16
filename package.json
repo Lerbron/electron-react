@@ -126,15 +126,11 @@
       "entitlements": "entitlements.mac.plist",
       "hardenedRuntime": true,
       "extendInfo": {
-        "NSMicrophoneUsageDescription": "请允许本程序访问您的麦克风",
-        "NSCameraUsageDescription": "请允许本程序访问您的摄像头"
+        "NSMicrophoneUsageDescription": "Please allow this program to access your micphone",
+        "NSCameraUsageDescription": "Please allow this program to access your camera"
       }
     },
     "dmg": {
-      "window": {
-        "width": 1024,
-        "height": 650
-      },
       "contents": [
         {
           "x": 410,
