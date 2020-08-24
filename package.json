@@ -1,6 +1,6 @@
 {
   "name": "electron-react",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "author": "lerbron",
   "description": "Electron React",
   "main": "main/index.prod.js",
@@ -14,7 +14,7 @@
     "build:main": "cross-env NODE_ENV=production webpack --config config/webpack.main.js --colors",
     "pack:mac": "cross-env NODE_ENV=production yarn build:render && yarn build:main && electron-builder build --mac",
     "build": "cross-env NODE_ENV=production yarn build:render && yarn build:main && electron-builder build",
-    "pack:win": "cross-env NODE_ENV=production yarn build:render && electron-builder build --win --ia32",
+    "pack:win": "cross-env NODE_ENV=production yarn build:render && yarn build:main && electron-builder build --win --ia32",
     "render:dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js  --colors",
     "render:prd": "cross-env NODE_ENV=production webpack --config config/webpack.build.js --colors",
     "dll:dev": "cross-env NODE_ENV=development webpack --config config/webpack.dll.js --colors",
