@@ -60,6 +60,8 @@ let createWindows = () => {
     mainWindow.webContents.openDevTools()
   } else {
     mainWindow.loadFile(path.resolve(__dirname, './../dist/index.html'))
+    mainWindow.webContents.openDevTools()
+
   }
 
   mainWindow.on('ready-to-show', () => {
@@ -177,14 +179,15 @@ app.on('ready', () => {
   createWindows()
   createTray()
   toggleTheme()
-  getMediaAuth()
+  // getMediaAuth()
 })
 
 app.on('will-finish-launching', () => {
   // 版本更新
-  // if (!isDev) {
-  //   require('./updater.js')
-  // }
+  if (!isDev) {
+    debugger
+    require('./updater.js')
+  }
 
   // 崩溃报告
   // require('./crashReport').init()

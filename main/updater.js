@@ -3,7 +3,8 @@ const { dialog, autoUpdater, app} = require('electron')
 if(process.platform === 'darwin') {
   autoUpdater.setFeedURL(`https://maqlln.wang/update/darwin?version=${app.getVersion()}`)
 } else {
-  autoUpdater.setFeedURL(`https://maqlln.wang/update/win32?version=${app.getVersion()}`)
+  // autoUpdater.setFeedURL(`https://maqlln.wang/update/win32?version=${app.getVersion()}`)
+  autoUpdater.setFeedURL(`https://127.0.0.1:3385/win32?version=${app.getVersion()}`)
 }
 
 autoUpdater.checkForUpdates()
@@ -31,8 +32,7 @@ autoUpdater.on('update-downloaded', (e, notes, version) => {
 
 autoUpdater.on('error', (error) => {
   app.whenReady().then(() => {
-
-    console.log('update error', error)
+    error= { ...error, a: 1}
     dialog.showMessageBoxSync({
       type: 'info',
       title: 'error',
